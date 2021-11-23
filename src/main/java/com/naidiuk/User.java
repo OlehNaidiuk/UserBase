@@ -1,28 +1,14 @@
 package com.naidiuk;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 public class User {
 
-    private int ID;
+    private int id;
     private String name;
     private int age;
     private Status status;
 
-    public User() {
-
-    }
-
-    public User(int ID, String name, int age, Status status) {
-        this.ID = ID;
-        this.name = name;
-        this.age = age;
-        this.status = status;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -37,8 +23,8 @@ public class User {
         this.status = status;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -53,44 +39,8 @@ public class User {
         return status;
     }
 
+    @Override
     public String toString() {
-        return String.format("ID: %-15d Name: %-14s Age: %-5d Status: %-15s\n", ID, name, age, status);
-    }
-
-    public static ArrayList<String> generateRandomUsers() {
-        ArrayList<String> users = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            User user = createRandomUser();
-            users.add(i, user.toString());
-        }
-        return users;
-    }
-
-    public static ArrayList<String> generateRandomUsers(int numberOfUsers) {
-        ArrayList<String> users = new ArrayList<>(numberOfUsers);
-        for (int i = 0; i < numberOfUsers; i++) {
-            User user = createRandomUser();
-            users.add(i, user.toString());
-        }
-        return users;
-    }
-
-    private int getRandomID() {
-        Random random = new Random();
-        return random.nextInt(Integer.MAX_VALUE);
-    }
-
-    private int getRandomAge() {
-        Random random = new Random();
-        return (random.nextInt(101 - 7) + 7);
-    }
-
-    private static User createRandomUser() {
-        User user = new User();
-        user.name = UserName.getRandomName();
-        user.ID = user.getRandomID();
-        user.age = user.getRandomAge();
-        user.status = Status.getRandomStatus();
-        return user;
+        return String.format("%-15d %-15s %-5d %-15s\n", id, name, age, status);
     }
 }
