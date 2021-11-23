@@ -57,7 +57,7 @@ public class User {
         return String.format("ID: %-15d Name: %-14s Age: %-5d Status: %-15s\n", ID, name, age, status);
     }
 
-    public static ArrayList generateRandomUsers() {
+    public static ArrayList<String> generateRandomUsers() {
         ArrayList<String> users = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             User user = createRandomUser();
@@ -66,7 +66,7 @@ public class User {
         return users;
     }
 
-    public static ArrayList generateRandomUsers(int numberOfUsers) {
+    public static ArrayList<String> generateRandomUsers(int numberOfUsers) {
         ArrayList<String> users = new ArrayList<>(numberOfUsers);
         for (int i = 0; i < numberOfUsers; i++) {
             User user = createRandomUser();
