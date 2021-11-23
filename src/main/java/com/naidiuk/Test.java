@@ -1,0 +1,10 @@
+package com.naidiuk;
+
+import java.util.ArrayList;
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList<String> users = User.generateRandomUsers(77);
+        UserStorage.writeToFile(users);
+    }
+}
