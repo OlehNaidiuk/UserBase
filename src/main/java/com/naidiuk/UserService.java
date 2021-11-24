@@ -41,7 +41,7 @@ public class UserService {
     }
 
     public User createRandomUser() {
-        User user = new User();
+        user = new User();
         user.setName(randomUserGenerator.getRandomName());
         user.setId(randomUserGenerator.getRandomId());
         user.setAge(randomUserGenerator.getRandomAge());
@@ -52,7 +52,8 @@ public class UserService {
     public List<String> generateRandomUsers() {
         List<String> users = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            users.add(createRandomUser().toString());
+            user = createRandomUser();
+            users.add(user.toString());
         }
         return users;
     }
@@ -60,7 +61,8 @@ public class UserService {
     public List<String> generateRandomUsers(int numberOfUsers) {
         List<String> users = new ArrayList<>(numberOfUsers);
         for (int i = 0; i < numberOfUsers; i++) {
-            users.add(createRandomUser().toString());
+            user = createRandomUser();
+            users.add(user.toString());
         }
         return users;
     }
