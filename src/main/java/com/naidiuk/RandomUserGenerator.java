@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RandomUserGenerator {
 
-    private final String[] USER_NAMES = new String[]{"Stanislav", "Vladimir", "Vitaliy", "Dmitriy", "Oleh",
+    private final String[] userNames = new String[]{"Stanislav", "Vladimir", "Vitaliy", "Dmitriy", "Oleh",
                         "Anatoliy", "Igor", "Valeriy", "Aleksandr", "Evgeniy", "Sergey", "Artem", "Viktor",
                         "Alena", "Aleksandra", "Natalia", "Anastasiya", "Fedor", "Olga", "Evgenia", "Lyudmila",
                         "Tatyana", "Ksenia", "Yulia", "Valentina", "Svetlana", "Ekaterina", "Irina", "Veronika"};
@@ -15,7 +15,7 @@ public class RandomUserGenerator {
     }
 
     public String getRandomName() {
-        return USER_NAMES[(random.nextInt(USER_NAMES.length))];
+        return userNames[(random.nextInt(userNames.length))];
     }
 
     public int getRandomAge() {
