@@ -4,27 +4,36 @@ import java.util.Random;
 
 public class RandomUserGenerator {
 
-    private final String[] userNames = new String[]{"Stanislav", "Vladimir", "Vitaliy", "Dmitriy", "Oleh",
+    private static final String[] USER_NAMES = new String[]{"Stanislav", "Vladimir", "Vitaliy", "Dmitriy", "Oleh",
                         "Anatoliy", "Igor", "Valeriy", "Aleksandr", "Evgeniy", "Sergey", "Artem", "Viktor",
                         "Alena", "Aleksandra", "Natalia", "Anastasiya", "Fedor", "Olga", "Evgenia", "Lyudmila",
                         "Tatyana", "Ksenia", "Yulia", "Valentina", "Svetlana", "Ekaterina", "Irina", "Veronika"};
-    private final Random random = new Random();
+    private static final Random RANDOM = new Random();
 
-    public int getRandomId() {
-        return random.nextInt(Integer.MAX_VALUE);
+    private static int getRandomId() {
+        return RANDOM.nextInt(Integer.MAX_VALUE);
     }
 
-    public String getRandomName() {
-        return userNames[(random.nextInt(userNames.length))];
+    private static String getRandomName() {
+        return USER_NAMES[(RANDOM.nextInt(USER_NAMES.length))];
     }
 
-    public int getRandomAge() {
-        return (random.nextInt(101 - 7) + 7);
+    private static int getRandomAge() {
+        return (RANDOM.nextInt(101 - 7) + 7);
     }
 
-    public Status getRandomStatus() {
+    private static Status getRandomStatus() {
         Status[] values = Status.values();
-        return values[random.nextInt(2)];
+        return values[RANDOM.nextInt(2)];
+    }
+
+    public static User createRandomUser() {
+        User user = new User();
+        user.setName(getRandomName());
+        user.setId(getRandomId());
+        user.setAge(getRandomAge());
+        user.setStatus(getRandomStatus());
+        return user;
     }
 }
 
