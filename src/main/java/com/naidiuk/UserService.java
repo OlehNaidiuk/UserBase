@@ -1,5 +1,6 @@
 package com.naidiuk;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
@@ -14,17 +15,18 @@ public class UserService {
         userStorage.writeToStorage(numberOfUsers);
     }
 
-    public List<String> readUserInfo() {
-        List<String> users = userStorage.readFromStorage();
+    public List<User> readUserInfo() {
+        List<String> usersInfo = userStorage.readFromStorage();
+        List<User> users = new ArrayList<>();
         String[] temp;
-        for (int i = 0; i < users.size(); i++) {
-            temp = users.remove(i).split(", ");
+        for (String userInfo : usersInfo) {
+            temp = userInfo.split(", ");
             User user = new User();
             user.setId(Integer.parseInt(temp[0]));
             user.setName(temp[1]);
             user.setAge(Integer.parseInt(temp[2]));
             user.setStatus(Status.valueOf(temp[3]));
-            users.add(i, user.toString());
+            users.add(user);
         }
         return users;
     }

@@ -22,7 +22,7 @@ public class UserStorage {
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (int i = 0; i < 10; i++) {
                 user = RandomUserGenerator.createRandomUser();
-                writer.write(toString());
+                writer.write(getUserInfo(user));
             }
         } catch (IOException e) {
             throw new RuntimeException("Can't find storage", e);
@@ -34,7 +34,7 @@ public class UserStorage {
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (int i = 0; i < numberOfUsers; i++) {
                 user = RandomUserGenerator.createRandomUser();
-                writer.write(toString());
+                writer.write(getUserInfo(user));
             }
         } catch (IOException e) {
             throw new RuntimeException("Can't find storage", e);
@@ -58,13 +58,12 @@ public class UserStorage {
             try {
                 Files.createFile(path);
             } catch (IOException e) {
-                throw new RuntimeException("Can not create file", e);
+                throw new RuntimeException("Can not create storage", e);
             }
         }
     }
 
-    @Override
-    public String toString() {
+    private String getUserInfo(User user) {
         return String.format("%d, %s, %d, %s\n", user.getId(), user.getName(), user.getAge(), user.getStatus());
     }
 }

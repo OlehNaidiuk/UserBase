@@ -5,8 +5,8 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
         UserService userService = new UserService();
-        userService.writeUserInfo(34);
-        List<String> users = userService.readUserInfo();
+        userService.writeUserInfo(11);
+        List<User> users = userService.readUserInfo();
         System.out.println(users);
     }
 }
